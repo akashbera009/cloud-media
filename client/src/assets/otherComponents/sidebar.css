@@ -1,0 +1,99 @@
+/* Base styles */
+.menu-button {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+    background-color: transparent;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color:transparent;
+    color: #fff;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    /* box-shadow: 1px 0 2px rgb(176, 176, 176); */
+    z-index: 999;
+    padding-top: 2rem;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures the last <ul> goes to the bottom */
+    align-items: flex-start;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    padding: 20px; /* Adds some padding for spacing */
+    box-sizing: border-box; /* Prevents overflow due to padding */
+  }
+  
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .sidebar-nav ul li {
+    cursor: pointer;
+    margin-left: 1.5rem;
+    margin-bottom: 10px; /* Adds space between items */
+  }
+  .sidebar-uploading {
+    margin-top: -2rem;
+    margin-bottom: 5rem;
+    /* background-color: red; */
+  }
+  .sidebar-uploading input{
+    background-color: transparent;
+    width: 50%;
+  }
+  
+  .sidebar-nav ul li a {
+    font-size: 1rem;
+    color: rgb(78, 253, 78); /* White color for text */
+    text-decoration: none; /* Removes underline from links */
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+  
+  .sidebar-nav ul li a svg {
+    margin-right: 10px; /* Space between icon and text */
+  }
+  
+  .sidebar-nav ul:first-child {
+    margin-top: 5rem; /* Moves the last <ul> to the bottom of the sidebar */
+  }
+    
+  .sidebar-nav ul:last-child {
+    align-self: flex-end; /* Moves the last <ul> to the bottom of the sidebar */
+  }
+  
+  
+  .sidebar-nav ul li a:hover {
+    /* text-decoration: underline; */
+  }
+  
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    transition: .3s  ease;
+  }
+
+  
