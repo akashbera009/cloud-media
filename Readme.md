@@ -1,4 +1,4 @@
-```markdown
+
 # Welcome to Cloud-Media  
 Cloud-Media is my first MERN stack project, featuring secure user authentication and an image gallery for each user.
 
@@ -14,7 +14,7 @@ Cloud-Media is my first MERN stack project, featuring secure user authentication
 - [Installation](#installation)
 - [Usage](#usage)
 
----
+
 
 ## Project Structure
 The project consists of the following components:
