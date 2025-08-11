@@ -69,13 +69,14 @@ const x =()=>{
 
       <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
     
-        <nav className="sidebar-nav " >
+        <nav className="sidebar-nav" >
+      
           <ul>
 
-          <li >
-            <img src="https://i.ibb.co/gZhRFvN/cloud-media-logo.png" alt="cloud-media-logo" height={'50px'} border="0"/>
-          </li>
-
+          {/* <li >
+           
+          </li> */}
+  <img src="https://i.ibb.co/gZhRFvN/cloud-media-logo.png" alt="cloud-media-logo" height={'50px'} border="0"/>
             <li><a href="/display">
             <svg
               version="1.1"

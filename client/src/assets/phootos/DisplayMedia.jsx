@@ -113,6 +113,20 @@ const DisplayMedia = () => {
   };
 
 
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    const linkToCopy = selectedMedia.filePath || "No file path provided";
+
+    navigator.clipboard.writeText(linkToCopy)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 3000); // Hide message after 3 seconds
+      })
+      .catch(err => console.error('Failed to copy: ', err));
+  };
+
+
   return (
     <div className="gallery-container">
         <Sidebar/>
@@ -204,7 +218,7 @@ const DisplayMedia = () => {
                                 media.filePath.slice(-3)=== 'mp3'? ( 
                                     <div
                                     key={media._id}
-                                    className="image-item"
+                                    className="mp3-item"
                                     onClick={() => openModal(media)}> 
                                     <audio controls className="audio-player">
                                         <source src={media.filePath} type="audio/mpeg" />
@@ -285,10 +299,48 @@ const DisplayMedia = () => {
                         {showDetails && (
                                 <div className='details'>
                                     <p className='file'>Size: {(selectedMedia.fileSize / 1024).toFixed(2)} kb</p>
-                                    <p className='file'>Dimension {selectedMedia.fileDimension[0]} X {selectedMedia.fileDimension[1]}</p>
+                                    <p className='file'>Dimension : {selectedMedia.fileDimension[0]} X {selectedMedia.fileDimension[1]}</p>
                                     <p className='file'>Created At: {selectedMedia.createdAt}</p>
                                     <p className='file'>Format: {selectedMedia.fileForamt}</p>
                                     <p className='file'>Public ID: {selectedMedia.public_id}</p>
+                                                                    
+                                    <div className="share-container">
+                                    <div className="share-box">
+                                        {/* URL Display */}
+                                        <div className="share-url">
+                                        {selectedMedia.filePath || "No file selected"}
+                                        </div>
+
+                                        {/* Copy Button */}
+                                        <button onClick={handleCopy} className="share-button">
+                                        <svg width="20" height="15" 
+                                            version="1.1"
+                                            id="Layer_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlnsXlink="http://www.w3.org/1999/xlink"
+                                            viewBox="0 0 122.88 98.86"
+                                            style={{ enableBackground: "new 0 0 122.88 98.86" }}
+                                            xmlSpace="preserve"
+                                            >
+                                            <style type="text/css">
+                                                {`.st0 { fill-rule:evenodd; clip-rule:evenodd; }`}
+                                            </style>
+                                            <g>
+                                                <path
+                                                className="st0"
+                                                fill="currentColor" // Allows it to inherit text color
+                                                d="M122.88,49.43L73.95,98.86V74.23C43.01,67.82,18.56,74.89,0,98.42c3.22-48.4,36.29-71.76,73.95-73.31l0-25.11 
+                                                L122.88,49.43L122.88,49.43z"
+                                                />
+                                            </g>
+                                            </svg>
+                                        Share
+                                        </button>
+                                    </div>
+
+                                    {/* Success Message */}
+                                    {copied && <div className="share-message">Link Copied successfully!</div>}
+                                    </div>
                                     <button className="delete-btn-image" onClick={()=>handleDelete(selectedMedia.public_id)}>Delete</button>
                                 </div>
                             )}

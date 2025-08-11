@@ -10,6 +10,8 @@ import Authenticate_Layout from './assets/user/Authenticate_Layout'
 import DisplayVideos from './assets/phootos/DisplayVideos';
 import DisplayImages from './assets/phootos/DisplayImages';
 import DisplayMusic from './assets/phootos/DisplayMusic';
+import Landing from './assets/Landing';
+// import NavAndBack from './assets/otherComponents/NavAndBack';
 
 function App() {
   const [data, setData] = useState(null);
@@ -45,7 +47,7 @@ function App() {
     
     }
     const signOut =()=>{
-      localStorage.setItem('user', null)
+      localStorage.setItem('user', "")
       localStorage.setItem('token', null)
       window.location.href = '/auth/login'
     }
@@ -53,27 +55,34 @@ function App() {
     <>
     <h1>Photos and videos </h1>
       <Router>
-        <nav>
-          {/* <Link to="/auth/login" >Login</Link> */}
-          {/* <Link to="/display">Display</Link> */}
-          <img src="https://i.ibb.co/gZhRFvN/cloud-media-logo.png" alt="cloud-media-logo" height={'50px'} border="0"/>
-          <div className="profile-container">
-          <button className='profile-name' onClick={handleProfileClick}>{owner || 'Sign-in'}
-          </button>
-          {profileDisplay  && (
-              <div className="profile-popup">
-                <p className="profile-name">{owner || 'Sign-in'}</p>
-                <button className="signout-button" onClick={signOut}>
-                  Sign Out
+      <nav>
+              <img src="https://i.ibb.co/gZhRFvN/cloud-media-logo.png" alt="cloud-media-logo" height={'50px'} border="0"/>
+              <div className="profile-container">
+
+              {owner == "" ? (
+                <button className='profile-name'onClick={() => window.location.href = '/auth/login'}>
+                  { 'Sign-in'}
                 </button>
-              </div>
-            )}
-            </div>
-        </nav>
-     
-        
-        {/* <Router> */}
+              ) : (
+                <button className='profile-name' onClick={handleProfileClick}>
+                  {owner}
+                </button>
+              )}
+
+                 
+          
+              {profileDisplay  && (
+                  <div className="profile-popup">
+                    <p className="profile-name">{owner || 'Sign-in'}</p>
+                    <button className="signout-button" onClick={signOut}>
+                      Sign Out
+                    </button>
+                  </div>
+                )}
+                </div>
+            </nav>
           <Routes>
+            <Route path="/" element={<Landing />} />
             {/* Main application layout that wraps login and register */}
             <Route path="/auth" element={<Authenticate_Layout />}>
               <Route path="login" element={<Login />} />

@@ -1,7 +1,15 @@
 
 # Welcome to Cloud-Media  
-Cloud-Media is my first MERN stack project, featuring secure user authentication and an image gallery for each user.
+Cloud-Media is my first MERN stack project, featuring secure user authentication and an File viewer for each user.
 
+
+
+
+---
+
+🎥 **[Watch Project Demo Video](https://drive.google.com/file/d/1lFaXZqOvV5o5lYilB2-Ys8PgcNw3Z51p/view?usp=sharing)**  
+🌐 **[Live Frontend on Vercel](https://cloud-media-mu.vercel.app/)**
+---
 ## Features
 - **User Registration**: Secure password hashing using bcrypt.
 - **JWT Authentication**: For protected routes and secure login.
@@ -72,4 +80,3 @@ Navigate to `http://localhost:3000` to view the frontened application.
 
 - Akash Bera - [Developer](https://www.linkedin.com/in/akash-bera-5a3009250/)
 
-```

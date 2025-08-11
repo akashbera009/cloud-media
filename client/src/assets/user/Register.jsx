@@ -37,6 +37,10 @@ useEffect(()=>{
   return (
     <>
       <form onSubmit={handleRegister} className='login-form'>
+      <button className="left-arrow-button" onClick={() => (window.location.href = "/")}>
+        ←
+      </button>
+
         <h2 className="login-title">Register</h2>
         <input
           type="text"

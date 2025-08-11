@@ -15,7 +15,9 @@
     display: grid;
     gap: 15px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px; /* Set a fixed height for rows */
     padding: 0 10px;
+    place-items: center; 
   }
   
   .video-item{
@@ -55,11 +57,27 @@
     margin-top: 20px;
   }
   
+  .mp3-item {
+    display: flex; /* Allows centering */
+    align-items: center;
+    justify-content: center;
+    
+    overflow: hidden;
+    width: 100%; /* Adjust based on content */
+    height: 100%;
+    max-width: 180px; /* Optional: Limits max size */
+    max-height: 180px;
+    
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
 .filename{
   position: absolute;
   /* background:linear-gradient(to bottom , black , black, rgba(0, 0, 0, 0)); */
   text-align: left;
-  margin-left: 10%;
+  margin-left: 5%;
   /* font-size: 3rem; */
   color: white;
   width: 60%;
@@ -84,11 +102,16 @@
 
 .modal-content {
   position: relative;
-  background: transparent;
-  padding: 20px;
+  background-color: rgb(15, 15, 15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.7), 0px 0px 10px rgba(0, 255, 100, 0.2);
+
+  padding: 2rem;
   border-radius: 10px;
   max-width: 90%;
+  min-width: 50%;
   max-height: 90%;
+  min-height: 30%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -96,7 +119,7 @@
 }
 
 .modal-image, .modal-video {
-  width: 100%;
+  /* width: 100%; */
   height: auto;
   max-height: 80vh;
   border-radius: 10px;
@@ -124,6 +147,7 @@
 
 .close-btn:hover {
   background-color: #0056b3;
+  cursor: pointer;
 }
 
 
@@ -246,6 +270,62 @@
   cursor: pointer;
   margin-bottom: 10px; /* Space between button and details */
 }
+/* Container wrapping the entire component */
+.share-container {
+  overflow: hidden;
+  width: 50%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Flex container for URL display and button */
+.share-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* URL Display area */
+.share-url {
+  flex: 7;
+  padding: 10px;
+  background-color: transparent;
+  color: lightgreen;
+  overflow-x: hidden;
+  white-space: nowrap;
+  font-size: 14px;
+  /* color: #333; */
+}
+
+/* Copy button styling */
+.share-button {
+  flex: 3;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.share-button:hover {
+  background-color: #45a049;
+}
+
+/* Success message styling */
+.share-message {
+  margin-top: 10px;
+  color: #4caf50;
+  font-weight: bold;
+  text-align: center;
+}
 
 
 
@@ -268,7 +348,7 @@
   /* position: absolute; */
   /* bottom: 0; */
   /* right: 2%; */
-  width: 100%;
+  width: 50%;
   background-color: #f44336; /* Red background color */
   color: white; /* White text color */
   border: none; /* No border */
