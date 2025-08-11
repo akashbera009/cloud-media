@@ -11,6 +11,9 @@ const PORT = process.env.PORT ;
 // console.log(PORT);
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.send("cloud media server is Live. go enjoy!!!");
+});
 app.use('/user', userRouter);
 
 
